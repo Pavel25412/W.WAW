@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opóźnienia - W.WAW</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>Opóźnienia</h1>
+      <p id="retention-note">Zgłoszenia znikają automatycznie po miesiącu od dodania.</p>
+    </div>
+
+    <section aria-labelledby="stats-title">
+      <h2 id="stats-title">Statystyki linii</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Linia</th>
+              <th scope="col" class="num">Zgłoszenia</th>
+              <th scope="col" class="num">Średnio (min)</th>
+              <th scope="col" class="num">90% do (min)</th>
+              <th scope="col" class="num">Maks. (min)</th>
+              <th scope="col">Najgorsza godzina</th>
+              <th scope="col">Ocena</th>
+            </tr>
+          </thead>
+          <tbody id="stats-body"><tr><td colspan="7">Ładowanie…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="hint">Ocena A-D zależy od średniego opóźnienia i wymaga co najmniej 3 zgłoszeń. Dane pochodzą od pasażerów, więc pokazują opóźnienia, a nie wszystkie kursy.</p>
+    </section>
+
+    <section>
+      <div class="split">
+        <form class="card" id="delay-form" novalidate>
+          <h2>Zgłoś opóźnienie</h2>
+          <label>Linia
+            <select name="lineId" id="delay-line" required></select>
+          </label>
+          <label>Opóźnienie (min)
+            <input type="number" name="delayMinutes" min="1" max="180" value="5" required>
+          </label>
+          <label>Przystanek (opcjonalnie)
+            <input name="stopName" maxlength="80" autocomplete="off">
+          </label>
+          <label>Komentarz (opcjonalnie)
+            <textarea name="comment" maxlength="200"></textarea>
+          </label>
+          <p class="form-error" id="delay-error" role="alert" hidden></p>
+          <button class="btn btn--primary" type="submit">Wyślij zgłoszenie</button>
+        </form>
+
+        <div>
+          <div class="page-head">
+            <h2>Ostatnie zgłoszenia</h2>
+            <label>Pokaż linię
+              <select id="filter-line"></select>
+            </label>
+          </div>
+          <ul class="plain-list" id="report-list" aria-live="polite"><li>Ładowanie…</li></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/delays.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kup bilet - W.WAW</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>Kup bilet</h1>
+      <p>Bilet zaczyna obowiązywać dopiero po skasowaniu w zakładce „Moje bilety”.</p>
+    </div>
+
+    <section aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Rodzaje biletów</h2>
+      <div class="segmented" role="radiogroup" aria-label="Taryfa">
+        <label><input type="radio" name="fare" value="NORMAL" checked><span>Normalny</span></label>
+        <label><input type="radio" name="fare" value="REDUCED"><span>Ulgowy</span></label>
+      </div>
+      <div class="grid" id="ticket-grid" aria-live="polite">Ładowanie…</div>
+    </section>
+
+    <section id="doradca" aria-labelledby="advisor-title">
+      <h2 id="advisor-title">Doradca biletowy</h2>
+      <p class="muted">Podpowie bilet na podstawie czasu przejazdu i zgłoszonych opóźnień wybranej linii. Używa taryfy wybranej powyżej.</p>
+      <div class="split">
+        <form class="card" id="advisor-form" novalidate>
+          <label>Linia
+            <select name="lineId" id="advisor-line" required></select>
+          </label>
+          <label>Planowany czas przejazdu (min)
+            <input type="number" name="plannedMinutes" min="1" max="240" value="20" required>
+          </label>
+          <p class="form-error" id="advisor-error" role="alert" hidden></p>
+          <button class="btn btn--primary" type="submit">Dobierz bilet</button>
+        </form>
+        <div id="advisor-result" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="purchase-dialog" aria-labelledby="purchase-title"></dialog>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/tickets.js"></script>
+</body>
+</html>

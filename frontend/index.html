@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>W.WAW - bilety i opóźnienia w Warszawie</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Zdążysz.</h1>
+      <p>Kup bilet komunikacji miejskiej w Warszawie i sprawdź, które linie najczęściej się spóźniają.</p>
+      <div class="actions">
+        <a class="btn btn--light" href="tickets.html">Kup bilet</a>
+        <a class="btn btn--ghost" href="delays.html">Zgłoś opóźnienie</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="features-title">
+      <h2 id="features-title">Co znajdziesz w W.WAW</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Bilety</h3>
+          <p>Wybierz bilet 20-, 75-, 90-minutowy lub dobowy, zapłać BLIK-iem lub kartą i skasuj go w aplikacji.</p>
+          <a href="tickets.html">Przejdź do biletów</a>
+        </article>
+        <article class="card">
+          <h3>Dziennik opóźnień</h3>
+          <p>Pasażerowie zgłaszają opóźnienia. Zgłoszenia znikają po miesiącu, więc statystyki są zawsze aktualne.</p>
+          <a href="delays.html">Zobacz opóźnienia</a>
+        </article>
+        <article class="card card--accent">
+          <h3>Doradca biletowy</h3>
+          <p>Podaj linię i czas przejazdu. Dobierzemy bilet, który wystarczy nawet przy typowym opóźnieniu tej linii.</p>
+          <a href="tickets.html#doradca">Zapytaj doradcę</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="ranking-title">
+      <h2 id="ranking-title">Najwięcej opóźnień</h2>
+      <p class="muted" id="ranking-note">Linie z najwyższym średnim opóźnieniem według ostatnich zgłoszeń.</p>
+      <div class="card" id="ranking" aria-live="polite">Ładowanie…</div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

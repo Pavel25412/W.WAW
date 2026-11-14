@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linie - W.WAW</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+    <div class="page-head">
+      <h1>Linie</h1>
+      <p>Katalog linii komunikacji miejskiej. Możesz dodać własną linię, zmienić jej dane lub ją usunąć.</p>
+      <button class="btn btn--primary" type="button" id="add-line">Dodaj linię</button>
+    </div>
+
+    <p class="form-error" id="lines-error" role="alert" hidden></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Numer</th>
+            <th scope="col">Rodzaj</th>
+            <th scope="col">Trasa</th>
+            <th scope="col"><span class="sr-only">Akcje</span></th>
+          </tr>
+        </thead>
+        <tbody id="lines-body"><tr><td colspan="4">Ładowanie…</td></tr></tbody>
+      </table>
+    </div>
+  </main>
+
+  <dialog id="line-dialog" aria-labelledby="line-dialog-title">
+    <form id="line-form" novalidate>
+      <h2 id="line-dialog-title">Dodaj linię</h2>
+      <label>Numer
+        <input name="number" maxlength="10" required autocomplete="off">
+      </label>
+      <label>Rodzaj transportu
+        <select name="type" required></select>
+      </label>
+      <label>Trasa
+        <input name="name" maxlength="100" required autocomplete="off">
+      </label>
+      <p class="form-error" id="line-form-error" role="alert" hidden></p>
+      <div class="dialog-actions">
+        <button class="btn btn--ghost" type="button" id="line-cancel">Anuluj</button>
+        <button class="btn btn--primary" type="submit">Zapisz</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/lines.js"></script>
+</body>
+</html>
