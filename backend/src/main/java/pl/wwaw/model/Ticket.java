@@ -11,8 +11,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tickets")
 public class Ticket {
 
@@ -41,9 +44,6 @@ public class Ticket {
     @Column(name = "expires_at")
     private Instant expiresAt;
 
-    protected Ticket() {
-    }
-
     public Ticket(TicketOrder order, Instant createdAt) {
         this.order = order;
         this.ticketType = order.getTicketType();
@@ -63,13 +63,4 @@ public class Ticket {
         }
         return now.isBefore(expiresAt) ? TicketStatus.ACTIVE : TicketStatus.EXPIRED;
     }
-
-    public Long getId() { return id; }
-    public TicketOrder getOrder() { return order; }
-    public TicketType getTicketType() { return ticketType; }
-    public String getOwnerId() { return ownerId; }
-    public String getCode() { return code; }
-    public Instant getCreatedAt() { return createdAt; }
-    public Instant getValidatedAt() { return validatedAt; }
-    public Instant getExpiresAt() { return expiresAt; }
 }

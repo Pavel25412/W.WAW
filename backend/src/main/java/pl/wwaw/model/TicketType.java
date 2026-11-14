@@ -10,8 +10,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "ticket_types")
 public class TicketType {
 
@@ -35,9 +41,6 @@ public class TicketType {
     @Column(nullable = false, precision = 8, scale = 2)
     private BigDecimal price;
 
-    protected TicketType() {
-    }
-
     public TicketType(String name, String description, int validityMinutes, FareType fare, BigDecimal price) {
         this.name = name;
         this.description = description;
@@ -45,11 +48,4 @@ public class TicketType {
         this.fare = fare;
         this.price = price;
     }
-
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public String getDescription() { return description; }
-    public int getValidityMinutes() { return validityMinutes; }
-    public FareType getFare() { return fare; }
-    public BigDecimal getPrice() { return price; }
 }

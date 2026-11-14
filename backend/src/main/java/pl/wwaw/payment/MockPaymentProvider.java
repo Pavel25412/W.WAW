@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MockPaymentProvider implements PaymentProvider {
 
-    static final String DECLINED_BLIK_CODE = "000000";
+    static final String declinedBlikCode = "000000";
 
     @Override
     public PaymentResult charge(BigDecimal amount, PaymentMethod method, String blikCode) {
@@ -16,7 +16,7 @@ public class MockPaymentProvider implements PaymentProvider {
             if (blikCode == null || !blikCode.matches("\\d{6}")) {
                 return PaymentResult.declined("Kod BLIK musi składać się z 6 cyfr.");
             }
-            if (DECLINED_BLIK_CODE.equals(blikCode)) {
+            if (declinedBlikCode.equals(blikCode)) {
                 return PaymentResult.declined("Płatność BLIK została odrzucona.");
             }
         }

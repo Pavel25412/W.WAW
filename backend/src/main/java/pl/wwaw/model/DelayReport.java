@@ -9,8 +9,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "delay_reports")
 public class DelayReport {
 
@@ -33,9 +39,6 @@ public class DelayReport {
     @Column(name = "reported_at", nullable = false)
     private Instant reportedAt;
 
-    protected DelayReport() {
-    }
-
     public DelayReport(Line line, int delayMinutes, String stopName, String comment, Instant reportedAt) {
         this.line = line;
         this.delayMinutes = delayMinutes;
@@ -43,11 +46,4 @@ public class DelayReport {
         this.comment = comment;
         this.reportedAt = reportedAt;
     }
-
-    public Long getId() { return id; }
-    public Line getLine() { return line; }
-    public int getDelayMinutes() { return delayMinutes; }
-    public String getStopName() { return stopName; }
-    public String getComment() { return comment; }
-    public Instant getReportedAt() { return reportedAt; }
 }

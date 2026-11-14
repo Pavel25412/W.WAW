@@ -8,8 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "lines")
 public class Line {
 
@@ -27,21 +31,9 @@ public class Line {
     @Column(name = "transport_type", nullable = false, length = 10)
     private TransportType type;
 
-    protected Line() {
-    }
-
     public Line(String number, String name, TransportType type) {
         this.number = number;
         this.name = name;
         this.type = type;
     }
-
-    public Long getId() { return id; }
-    public String getNumber() { return number; }
-    public String getName() { return name; }
-    public TransportType getType() { return type; }
-
-    public void setNumber(String number) { this.number = number; }
-    public void setName(String name) { this.name = name; }
-    public void setType(TransportType type) { this.type = type; }
 }
