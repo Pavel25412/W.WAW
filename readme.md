@@ -4,7 +4,7 @@
 
 Full-stack MVP (temat: transport). Backend w Javie (Spring Boot), frontend w czystym HTML/CSS/JS, baza w pamięci (H2).
 
-![Demo działania aplikacji](docs/demo.gif)
+[Film demo](https://youtu.be/lhGEn7ZrPhw)
 
 ## Co potrafi aplikacja
 
