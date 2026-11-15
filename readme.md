@@ -93,6 +93,8 @@ W oknie zakupu wpisz dowolny 6-cyfrowy kod BLIK, a po zakupie skasuj bilet w zak
 
 ## Jak wspierałem się narzędziami AI
 
-> Uzupełnij tę sekcję własnymi słowami, zgodnie z tym, jak faktycznie pracowałeś.
+Wybrałem kierunek aplikacji: miała przypominać Jakdojade, z zakupem biletów i płatnościami, a zgłoszenia opóźnień miały znikać automatycznie po miesiącu. Nazwę W.WAW zaproponowałem sam. Sam zdecydowałem też o stosie (Java i Spring Boot, czysty JavaScript bez frameworków), palecie kolorów i minimalistycznym układzie strony.
 
-Do wyboru tematu i zaplanowania projektu użyłem Claude (claude.ai): porównanie pomysłów, projekt API i zasad działania aplikacji. Claude wygenerował szkielet backendu (warstwy, DTO, obsługa błędów, testy jednostkowe) oraz frontend. Decyzje produktowe podjąłem sam, m.in. temat (bilety i dziennik opóźnień w Warszawie), automatyczne usuwanie zgłoszeń po miesiącu, paletę kolorów i minimalistyczny układ strony. Instrukcje dla narzędzi AI są w pliku [`AGENTS.md`](AGENTS.md).
+Do realizacji użyłem Claude (claude.ai). Claude wygenerował szkielet backendu (warstwy, obsługę błędów, statystyki opóźnień, doradcę biletowego i symulowane płatności) oraz cały frontend, ponieważ moim głównym obszarem jest backend. Sam uruchamiałem i sprawdzałem działanie projektu, przeniosłem encje na Lombok, skonfigurowałem środowisko (WSL, JDK 21, Maven, Git) i opublikowałem repozytorium.
+
+Instrukcje dla narzędzi AI są w pliku [`AGENTS.md`](AGENTS.md).
